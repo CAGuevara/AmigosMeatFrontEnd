@@ -5,7 +5,7 @@ import AddUsers from '../addusers';
 
 const Users = () => {
     return (
-        <div className="usersMenu">
+        <div className="ui centered grid" id="users-menu">
                     <div className="ui vertical animated button" tabindex="0">
                         <div className="visible content">Display Users</div>
                         <div className="hidden content">Mostrar Usuarios</div>

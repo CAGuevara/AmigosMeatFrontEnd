@@ -1,5 +1,8 @@
-.usersMenu {
-background-color: lightcyan;
-height: 200px;
+#users-menu {
+/* background-color: lightcyan; */
+padding: 10px;
+vertical-align:middle;
+margin:5%;
+height: 60px;
 }
 
