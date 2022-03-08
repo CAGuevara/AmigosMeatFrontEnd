@@ -30,13 +30,13 @@ const DisplayUsers = () => {
             <table className="ui celled table">
                 <thead>
                     <tr>
-                        <th>Phone Number/Numero de Telefono</th>
-                        <th>First Name/Nombre</th>
-                        <th>Last Name/Apellido</th>
-                        <th>Store Name/Nombre de la Tienda</th>
-                        <th>Email Address/Correo Electronico</th>
-                        <th>Password/Clave</th>
-                        <th>Actions</th>
+                        <th className="ui center aligned header">Phone Number / Numero de Telefono</th>
+                        <th className="ui center aligned header">First Name / Nombre</th>
+                        <th className="ui center aligned header">Last Name / Apellido</th>
+                        <th className="ui center aligned header" >Store Name / Nombre de la Tienda</th>
+                        <th className="ui center aligned header">Email Address / Correo Electronico</th>
+                        <th className="ui center aligned header">Password/Clave</th>
+                        {/* <th>Actions</th> */}
                     </tr>
                 </thead>
                 <tbody>
@@ -44,13 +44,13 @@ const DisplayUsers = () => {
                         users.map(user => {
                             return (
                                 <tr>
-                                    <td data-label="phone">{user.phone}</td>
-                                    <td data-label="firstname">{user.firstname}</td>
-                                    <td data-label="lastname">{user.lastname}</td>
-                                    <td data-label="storename">{user.storename}</td>
-                                    <td data-label="email">{user.email}</td>
-                                    <td data-label="pwd">{user.pwd}</td>
-                                    <td data-label=""></td>
+                                    <td data-label="phone" className="ui center aligned">{user.phone}</td>
+                                    <td data-label="firstname" className="ui center aligned">{user.firstname}</td>
+                                    <td data-label="lastname" className="ui center aligned">{user.lastname}</td>
+                                    <td data-label="storename" className="ui center aligned">{user.storename}</td>
+                                    <td data-label="email" className="ui center aligned">{user.email}</td>
+                                    <td data-label="pwd" className="ui center aligned">{user.pwd}</td>
+                                    {/* <td data-label=""></td> */}
                                 </tr>
                             )
                         })
