@@ -10,6 +10,8 @@ const UpdateUsers = () => {
     const [emailUser, setEmailUser] = useState('');
     const [pwdUser, setPwdUser] = useState('');
 
+
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -111,12 +113,12 @@ const UpdateUsers = () => {
                         </div>
                     </div>
                 </div>
-                
+
                 <div className="ui four wide column vertical animated button" id="button-id" tabindex="0">
-                        <div className="hidden content"> Actualizar</div>
-                        <div className="visible content">Update</div>
+                    <div className="hidden content"> Actualizar</div>
+                    <div className="visible content">Update</div>
                 </div>
-                
+
                 {/* <button className="ui button form success">
                     <div className="ui vertical animated button">
                         <div className="hidden content">Actualizar</div>

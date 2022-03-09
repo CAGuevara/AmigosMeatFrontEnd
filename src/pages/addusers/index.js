@@ -25,7 +25,7 @@ const AddUsers = () => {
                 pwd: pwdUser
             }
             console.log("Testing Phone USer", phoneUser.length);
-            if ((phoneUser.length <12)||(phoneUser.length>12)){
+            if ((phoneUser.length < 12) || (phoneUser.length > 12)) {
                 return;
             }
 
@@ -33,6 +33,12 @@ const AddUsers = () => {
             // console.log(response);
 
             if (response.status === 200) {
+                setPhoneUser('');
+                setFirstName('');
+                setLastName('');
+                setStoreName('');
+                setEmailUser('');
+                setPwdUser('');
                 window.alert(`The User has been Added Succesfully / El Usuario ha sido agregado exitosamente`)
             }
 
@@ -54,6 +60,7 @@ const AddUsers = () => {
                             <input type="text"
                                 name="phone"
                                 placeholder="xxx-xxx-xxxx"
+                                value={phoneUser}
                                 onChange={e => setPhoneUser(e.target.value)}
                             ></input>
                         </div>
@@ -68,6 +75,7 @@ const AddUsers = () => {
                         <div className="six wide field">
                             <input type="text"
                                 name="first-name"
+                                value = {firstName}
                                 placeholder="First Name/Nombre"
                                 onChange={e => setFirstName(e.target.value)}>
                             </input>
@@ -75,6 +83,7 @@ const AddUsers = () => {
                         <div className="six wide field">
                             <input type="text"
                                 name="last-name"
+                                value={lastName}
                                 placeholder="Last Name/ Apellido"
                                 onChange={e => setLastName(e.target.value)}>
                             </input>
@@ -87,6 +96,7 @@ const AddUsers = () => {
                             <label>Store Name/ Nombre de la Tienda</label>
                             <input type="text"
                                 name="store-name"
+                                value={storeName}
                                 placeholder="Store Name/Nombre de La tienda "
                                 onChange={e => setStoreName(e.target.value)}
                             ></input>
@@ -95,6 +105,7 @@ const AddUsers = () => {
                             <label>E-mail / Correo Electronico</label>
                             <input type="text"
                                 name="email"
+                                value={emailUser}
                                 placeholder="joe@schmoe.com"
                                 onChange={e => setEmailUser(e.target.value)}
                             ></input>
@@ -103,6 +114,7 @@ const AddUsers = () => {
                             <label>Password / Clave</label>
                             <input type="text"
                                 name="pwd"
+                                value={pwdUser}
                                 placeholder="Password/Clave"
                                 onChange={e => setPwdUser(e.target.value)}
                             ></input>
