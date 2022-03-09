@@ -6,9 +6,9 @@ const Nav = () => {
         <div>
 
             <div className="ui secondary pointing menu">
-                {/* <Link className="item">
+                <Link className="item" to ="/">
                     Home/Inicio
-                </Link>*/}
+                </Link>
                 <Link className="item" to="users">
                     Users / Usuarios
                 </Link>
@@ -26,7 +26,7 @@ const Nav = () => {
                         Cart / Carro de Compras
                     </Link>
                     <Link className="ui item" to="login">
-                        Login / Acceso Usuarios
+                        Login / Acceso
                     </Link>
                 </div>
             </div>

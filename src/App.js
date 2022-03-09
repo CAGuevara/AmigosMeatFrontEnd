@@ -13,6 +13,7 @@ import Products from './pages/Products';
 import Cart from './pages/Cart';
 import DisplayProducts from './pages/displayproducts';
 import ProductsForUser from './pages/productsforuser';
+import Home from './pages/home';
 
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
     <div>
       <Nav/>
       <Routes>
+      <Route path='/' element={<Home />} />
       {/* <Route path='login' element={<Login/>} /> */}
       <Route path='users' element={<Users/>}/>
       <Route path='users/AddUsers' element={<AddUsers/>}/>
