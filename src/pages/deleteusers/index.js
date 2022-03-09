@@ -13,7 +13,7 @@ const DeleteUsers = () => {
     const fetchUsers = async () => {
         try {
             const response = await axios.get('http://localhost:8080/api/v1/allusers')
-            console.log(response);
+            // console.log(response);
             setUsers(response.data);
         } catch (error) {
             console.log(error);

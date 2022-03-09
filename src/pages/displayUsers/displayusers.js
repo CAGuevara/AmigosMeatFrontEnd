@@ -4,10 +4,7 @@ import { useEffect, useState } from 'react';
 
 
 const DisplayUsers = () => {
-
     const [users, setUsers] = useState([]);
-
-
 
     useEffect(() => {
         fetchUSers();
@@ -22,8 +19,7 @@ const DisplayUsers = () => {
             console.log(error);
         }
     }
-
-    console.log("this is the Users list :", users);
+    // console.log("this is the Users list :", users);
 
     return (
         <div>

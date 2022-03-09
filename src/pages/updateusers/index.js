@@ -10,6 +10,33 @@ const UpdateUsers = () => {
     const [emailUser, setEmailUser] = useState('');
     const [pwdUser, setPwdUser] = useState('');
 
+    const [userToEdit, setUserToEdit] = useState('');
+
+    const [users, setUsers] = useState([]);
+
+
+    useEffect(() => {
+        fetchUsers();
+    }, []);
+
+    const fetchUsers = async () => {
+        try {
+            const response = await axios.get('http://localhost:8080/api/v1/allusers')
+            // console.log(response);
+            setUsers(response.data);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    const findUser = async(phone)=> {
+        try{
+            const response = await axios.delete(`http://localhost:8080/api/v1/users/${phone}`)
+            fetchUsers()
+        }catch (error){
+            console.log(error);
+        }
+    }
 
 
     const handleSubmit = async (e) => {
@@ -24,12 +51,11 @@ const UpdateUsers = () => {
                 email: emailUser,
                 pwd: pwdUser
             }
-            console.log("Testing Phone USer", phoneUser.length);
             if ((phoneUser.length < 12) || (phoneUser.length > 12)) {
                 return;
             }
 
-            const response = await axios.post('http://localhost:8080/api/v1/adduser', newUser);
+            const response = await axios.put('http://localhost:8080/api/v1/adduser', newUser);
             // console.log(response);
 
             if (response.status === 200) {
@@ -56,7 +82,7 @@ const UpdateUsers = () => {
                                 placeholder="xxx-xxx-xxxx"
                                 onChange={e => setPhoneUser(e.target.value)}
                             ></input>
-                            <div className="ui vertical animated button" tabindex="0" >
+                            <div className="ui vertical animated button" tabindex="0" onClick={findUser}>
                                 <div className="hidden content"> Search User</div>
                                 <div className="visible content">Buscar Usuario</div>
                             </div>
@@ -114,17 +140,17 @@ const UpdateUsers = () => {
                     </div>
                 </div>
 
-                <div className="ui four wide column vertical animated button" id="button-id" tabindex="0">
+                {/* <div className="ui four wide column vertical animated button" id="button-id" tabindex="0" >
                     <div className="hidden content"> Actualizar</div>
                     <div className="visible content">Update</div>
-                </div>
+                </div> */}
 
-                {/* <button className="ui button form success">
+                <button className="ui button form success">
                     <div className="ui vertical animated button">
                         <div className="hidden content">Actualizar</div>
                         <div className="visible content">Update</div>
                     </div>
-                </button> */}
+                </button>
             </form>
         </div>
     );
