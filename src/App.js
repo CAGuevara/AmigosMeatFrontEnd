@@ -7,6 +7,9 @@ import Nav from './components/Nav';
 import Users from './pages/Users';
 import AddUsers from './pages/addusers';
 import DisplayUsers from './pages/displayUsers/displayusers';
+import UpdateUsers from './pages/updateusers';
+import DeleteUsers from './pages/deleteusers';
+
 
 const App = () => {
   return (
@@ -17,7 +20,11 @@ const App = () => {
       {/* <Route path='login' element={<Login/>} /> */}
       <Route path='users' element={<Users/>}/>
       <Route path='users/AddUsers' element={<AddUsers/>}/>
-      <Route path='users/DisplayUsers' element={<DisplayUsers/>}/>
+      <Route path='/DisplayUsers' element={<DisplayUsers/>}/>
+      <Route path='/AddUsers' element={<AddUsers/>}/>
+      <Route path='/UpdateUsers' element={<UpdateUsers/>}/>
+      <Route path='/DeleteUsers' element={<DeleteUsers/>}/>
+
 
       </Routes>
     </div>
