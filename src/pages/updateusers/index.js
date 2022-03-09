@@ -3,59 +3,127 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 
 const UpdateUsers = () => {
-    const [users, setUsers] = useState([]);
-    
-    
-    useEffect(() => {
-        fetchUSers();
-    }, []);
+    const [phoneUser, setPhoneUser] = useState('');
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [storeName, setStoreName] = useState('');
+    const [emailUser, setEmailUser] = useState('');
+    const [pwdUser, setPwdUser] = useState('');
 
-    const fetchUSers = async () => {
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
         try {
-            const response = await axios.get('http://localhost:8080/api/v1/allusers')
-            console.log(response);
-            setUsers(response.data);
+            const newUser = {
+                phone: phoneUser,
+                firstname: firstName,
+                lastname: lastName,
+                storename: storeName,
+                email: emailUser,
+                pwd: pwdUser
+            }
+            console.log("Testing Phone USer", phoneUser.length);
+            if ((phoneUser.length < 12) || (phoneUser.length > 12)) {
+                return;
+            }
+
+            const response = await axios.post('http://localhost:8080/api/v1/adduser', newUser);
+            // console.log(response);
+
+            if (response.status === 200) {
+                window.alert(`The User has been Added Succesfully / El Usuario ha sido agregado exitosamente`)
+            }
+
         } catch (error) {
             console.log(error);
         }
-    }
 
-    // console.log("this is the Users list :", users);
+    }
 
     return (
         <div>
-            <table className="ui celled table">
-                <thead>
-                    <tr>
-                        <th className="ui center aligned header">Phone Number / Numero de Telefono</th>
-                        <th className="ui center aligned header">First Name / Nombre</th>
-                        <th className="ui center aligned header">Last Name / Apellido</th>
-                        <th className="ui center aligned header" >Store Name / Nombre de la Tienda</th>
-                        <th className="ui center aligned header">Email Address / Correo Electronico</th>
-                        <th className="ui center aligned header">Password/Clave</th>
-                        {/* <th>Actions</th> */}
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        users.map(user => {
-                            return (
-                                <tr>
-                                    <td data-label="phone" className="ui center aligned">{user.phone}</td>
-                                    <td data-label="firstname" className="ui center aligned">{user.firstname}</td>
-                                    <td data-label="lastname" className="ui center aligned">{user.lastname}</td>
-                                    <td data-label="storename" className="ui center aligned">{user.storename}</td>
-                                    <td data-label="email" className="ui center aligned">{user.email}</td>
-                                    <td data-label="pwd" className="ui center aligned">{user.pwd}</td>
-                                    {/* <td data-label=""></td> */}
-                                </tr>
-                            )
-                        })
-                    }
-                </tbody>
-            </table>
+            <form className="ui form" id="form-padding" onSubmit={handleSubmit}>
+                <br></br>
+                <h4 className="ui dividing header">Enter the Phone Number of the User you wish to Update / Digite el Numero de Telefono del Usuario que Quiere Modificar</h4>
+                <div className="ui form">
+                    <div className="inline fields required field">
+                        <label>Phone Number /Numero de Telefono </label>
+                        <div className="field">
+                            <input type="text"
+                                name="phone"
+                                placeholder="xxx-xxx-xxxx"
+                                onChange={e => setPhoneUser(e.target.value)}
+                            ></input>
+                            <div className="ui vertical animated button" tabindex="0" >
+                                <div className="hidden content"> Search User</div>
+                                <div className="visible content">Buscar Usuario</div>
+                            </div>
+                        </div>
 
+                    </div>
+                </div>
+                <h4 className="ui dividing header"></h4>
 
+                <div className="field">
+                    <label> Full Name / Nombre Completo </label>
+                    <div className="two fields">
+                        <div className="six wide field">
+                            <input type="text"
+                                name="first-name"
+                                placeholder="First Name/Nombre"
+                                onChange={e => setFirstName(e.target.value)}>
+                            </input>
+                        </div>
+                        <div className="six wide field">
+                            <input type="text"
+                                name="last-name"
+                                placeholder="Last Name/ Apellido"
+                                onChange={e => setLastName(e.target.value)}>
+                            </input>
+                        </div>
+                    </div>
+                </div>
+                <div className="field">
+                    <div className="fields">
+                        <div className="four wide field">
+                            <label>Store Name/ Nombre de la Tienda</label>
+                            <input type="text"
+                                name="store-name"
+                                placeholder="Store Name/Nombre de La tienda "
+                                onChange={e => setStoreName(e.target.value)}
+                            ></input>
+                        </div>
+                        <div className="four wide field">
+                            <label>E-mail / Correo Electronico</label>
+                            <input type="text"
+                                name="email"
+                                placeholder="joe@schmoe.com"
+                                onChange={e => setEmailUser(e.target.value)}
+                            ></input>
+                        </div>
+                        <div className="four wide field">
+                            <label>Password / Clave</label>
+                            <input type="text"
+                                name="pwd"
+                                placeholder="Password/Clave"
+                                onChange={e => setPwdUser(e.target.value)}
+                            ></input>
+                        </div>
+                    </div>
+                </div>
+                
+                <div className="ui four wide column vertical animated button" id="button-id" tabindex="0">
+                        <div className="hidden content"> Actualizar</div>
+                        <div className="visible content">Update</div>
+                </div>
+                
+                {/* <button className="ui button form success">
+                    <div className="ui vertical animated button">
+                        <div className="hidden content">Actualizar</div>
+                        <div className="visible content">Update</div>
+                    </div>
+                </button> */}
+            </form>
         </div>
     );
 }
