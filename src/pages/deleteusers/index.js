@@ -4,18 +4,27 @@ import { useEffect, useState } from 'react';
 
 const DeleteUsers = () => {
     const [users, setUsers] = useState([]);
-    
-    
+
+
     useEffect(() => {
-        fetchUSers();
+        fetchUsers();
     }, []);
 
-    const fetchUSers = async () => {
+    const fetchUsers = async () => {
         try {
             const response = await axios.get('http://localhost:8080/api/v1/allusers')
             console.log(response);
             setUsers(response.data);
         } catch (error) {
+            console.log(error);
+        }
+    }
+
+    const deleteUser = async(phone)=> {
+        try{
+            const response = await axios.delete(`http://localhost:8080/api/v1/users/${phone}`)
+            fetchUsers()
+        }catch (error){
             console.log(error);
         }
     }
@@ -47,6 +56,12 @@ const DeleteUsers = () => {
                                     <td data-label="storename" className="ui center aligned">{user.storename}</td>
                                     <td data-label="email" className="ui center aligned">{user.email}</td>
                                     <td data-label="pwd" className="ui center aligned">{user.pwd}</td>
+                                    <td className=" ui center aligned">
+                                        <div className="ui vertical animated button" tabindex="0" onClick={()=>deleteUser(user.phone)}>
+                                            <div className="hidden content"> Borrar Usuario </div>
+                                            <div className="visible content">Delete User</div>
+                                        </div>
+                                    </td>
                                 </tr>
                             )
                         })
