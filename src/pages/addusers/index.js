@@ -112,7 +112,7 @@ const AddUsers = () => {
                         </div>
                         <div className="four wide field">
                             <label>Password / Clave</label>
-                            <input type="text"
+                            <input type="password"
                                 name="pwd"
                                 value={pwdUser}
                                 placeholder="Password/Clave"

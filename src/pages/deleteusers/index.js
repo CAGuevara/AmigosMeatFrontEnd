@@ -41,7 +41,7 @@ const DeleteUsers = () => {
                         <th className="ui center aligned header">Last Name / Apellido</th>
                         <th className="ui center aligned header" >Store Name / Nombre de la Tienda</th>
                         <th className="ui center aligned header">Email Address / Correo Electronico</th>
-                        <th className="ui center aligned header">Password/Clave</th>
+                        {/* <th className="ui center aligned header">Password/Clave</th> */}
                         <th className="ui center aligned header"> Delete / Borrar </th>
                     </tr>
                 </thead>
@@ -55,7 +55,7 @@ const DeleteUsers = () => {
                                     <td data-label="lastname" className="ui center aligned">{user.lastname}</td>
                                     <td data-label="storename" className="ui center aligned">{user.storename}</td>
                                     <td data-label="email" className="ui center aligned">{user.email}</td>
-                                    <td data-label="pwd" className="ui center aligned">{user.pwd}</td>
+                                    {/* <td data-label="pwd" className="ui center aligned">{user.pwd}</td> */}
                                     <td className=" ui center aligned">
                                         <div className="ui vertical animated button" tabindex="0" onClick={()=>deleteUser(user.phone)}>
                                             <div className="hidden content"> Borrar Usuario </div>
