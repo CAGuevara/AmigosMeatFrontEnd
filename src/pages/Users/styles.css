@@ -1,12 +1,13 @@
 #users-menu {
 height: 300px;
 /* align-self: center; */
-/* width: 80%; */
+width: 60%;
 }
 #button-align{
     padding: auto;
     text-align: center;
     height: 40px;
+    /* width: 100ex; */
 }
 
 #button-center{

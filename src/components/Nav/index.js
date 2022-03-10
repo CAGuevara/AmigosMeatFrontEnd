@@ -2,15 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import usercontext from '../../contexts/UserContext';
+import Home from '../../pages/home';
+import { useNavigate } from 'react-router-dom';
 
 const Nav = () => {
     const user = useContext(usercontext);
+     const navigateTo = useNavigate();
 
     return (
         <div>
             {
                 !user
-
                     ?
                     <>
                         {console.log("This is the users", user)}
@@ -21,7 +23,7 @@ const Nav = () => {
                             <Link className="ui item" to="cart">
                                 Cart / Carro de Compras
                             </Link>
-                            <Link className="ui item" to="login">
+                            <Link className="ui item" onClick={() => navigateTo('/')} >
                                 Logout / Salir
                             </Link>
 
@@ -30,9 +32,9 @@ const Nav = () => {
                     :
                     <>
                         <div className="ui secondary pointing menu">
-                            <Link className="item" to="/">
+                            {/* <Link className="item" to="/">
                                 Home/Inicio
-                            </Link>
+                            </Link> */}
                             <Link className="item" to="users">
                                 Users / Usuarios
                             </Link>
@@ -40,7 +42,7 @@ const Nav = () => {
                                 Products / Productos
                             </Link>
                             <div className="right menu">
-                                <Link className="ui item" to="login">
+                                <Link className="ui item" to="/">
                                     Logout / Salir
                                 </Link>
 

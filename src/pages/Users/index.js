@@ -27,8 +27,8 @@ const Users = () => {
     }
 
     return (
-        <>
-            <div className="ui centered grid menu stackable" id="users-menu">
+        <div className='mx-auto border p-2 m-2' >
+            <div className="ui centered grid menu stackable mx-auto border p-2 m-2" id="users-menu">
                 <div className="row">
                     <div className="ui four wide column vertical animated button" id="button-align" tabindex="0" onClick={() => navigateTo('/DisplayUsers')}>
                         <div className="visible content">Display Users</div>
@@ -58,7 +58,7 @@ const Users = () => {
 
 
             </div>
-        </>
+        </div>
     );
 }
 

@@ -35,7 +35,7 @@ const Home = () => {
                 <div className="mb-3">
                     {/* <div id="userHelp" className="form-text">Type your User Name and Password.</div> */}
                     <label htmlFor="exampleInputUser1"
-                        className="form-label">Username</label>
+                        className="form-label">Phone Number / Numero  de Telefono</label>
                     <input
                         type="text"
                         className="form-control"
@@ -47,7 +47,7 @@ const Home = () => {
 
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
+                    <label htmlFor="exampleInputPassword1" className="form-label">Password / Clave</label>
                     <input type="password" className="form-control" id="exampleInputPassword1" />
                 </div>
 
